@@ -1,0 +1,9 @@
+import uk.ac.ox.softeng.maurodatamapper.core.container.VersionedFolder
+import uk.ac.ox.softeng.maurodatamapper.security.UserSecurityPolicyManager
+
+model {
+    VersionedFolder versionedFolder
+    UserSecurityPolicyManager userSecurityPolicyManager
+}
+
+json tmpl.versionedFolder_full(versionedFolder: versionedFolder, userSecurityPolicyManager: userSecurityPolicyManager)

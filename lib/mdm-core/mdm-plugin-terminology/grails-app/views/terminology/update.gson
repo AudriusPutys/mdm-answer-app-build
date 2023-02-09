@@ -1,0 +1,10 @@
+import uk.ac.ox.softeng.maurodatamapper.security.UserSecurityPolicyManager
+import uk.ac.ox.softeng.maurodatamapper.terminology.Terminology
+
+model {
+    Terminology terminology
+    UserSecurityPolicyManager userSecurityPolicyManager
+}
+
+json tmpl.terminology_full(terminology: terminology, userSecurityPolicyManager: userSecurityPolicyManager)
+

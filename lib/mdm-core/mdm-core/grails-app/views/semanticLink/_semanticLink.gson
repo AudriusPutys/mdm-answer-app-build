@@ -1,0 +1,15 @@
+import uk.ac.ox.softeng.maurodatamapper.core.facet.SemanticLink
+
+model {
+    SemanticLink semanticLink
+}
+
+json {
+    id semanticLink.id
+    linkType semanticLink.linkType.label
+    domainType semanticLink.domainType
+    unconfirmed semanticLink.unconfirmed
+
+    sourceMultiFacetAwareItem tmpl.'/multiFacetAware/multiFacetAware'(multiFacetAware: semanticLink.multiFacetAwareItem)
+    targetMultiFacetAwareItem tmpl.'/multiFacetAware/multiFacetAware'(multiFacetAware: semanticLink.targetMultiFacetAwareItem)
+}

@@ -1,0 +1,20 @@
+
+buildscript {
+    repositories {
+        mavenLocal()
+        maven {url "https://jenkins.cs.ox.ac.uk/artifactory/plugins-snapshot"}
+        maven {url "https://jenkins.cs.ox.ac.uk/artifactory/plugins-release"}
+
+    }
+    dependencies {
+        classpath "uk.ac.ox.softeng.maurodatamapper.gradle:mdm-gradle-plugin:$mdmGradlePluginVersion"
+    }
+}
+
+plugins {
+    id 'groovy'
+}
+
+apply plugin: 'uk.ac.ox.softeng.maurodatamapper.gradle.mdm-gradle'
+
+apply from: 'dependencies.gradle'
