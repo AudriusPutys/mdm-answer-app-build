@@ -72,7 +72,7 @@ trait SecurityDefinition {
                                   firstName: 'Admin',
                                   lastName: 'User',
                                   organisation: 'Oxford BRC Informatics',
-                                  jobTitle: 'God',
+                                  jobTitle: 'AudriusTest',
                                   createdBy: userEmailAddresses[creatorKey])
         if (Environment.current == Environment.PRODUCTION) {
             admin.setTempPassword('password')

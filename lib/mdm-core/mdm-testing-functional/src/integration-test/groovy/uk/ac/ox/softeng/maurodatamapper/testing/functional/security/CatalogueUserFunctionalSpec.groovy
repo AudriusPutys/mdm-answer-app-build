@@ -183,7 +183,7 @@ class CatalogueUserFunctionalSpec extends FunctionalSpec {
       ],
       "lastLogin": "${json-unit.matches:offsetDateTime}",
       "organisation": "Oxford BRC Informatics",
-      "jobTitle": "God",
+      "jobTitle": "AudriusTest",
       "groups": [
         {
           "id": "${json-unit.matches:id}",
@@ -1336,7 +1336,7 @@ class CatalogueUserFunctionalSpec extends FunctionalSpec {
         lines.any {it ==~ /authenticated@test.com,authenticated,User,(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{6}(Z|\+01:00))?,,,false,false/}
         lines.any {it ==~ /reader@test.com,reader,User,(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{6}(Z|\+01:00))?,,,false,false/}
         lines.any {it ==~ /pending@test.com,pending,User,,Oxford,tester,false,true/}
-        lines.any {it ==~ /admin@maurodatamapper.com,Admin,User,(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{6}(Z|\+01:00))?,Oxford BRC Informatics,God,false,false/}
+        lines.any {it ==~ /admin@maurodatamapper.com,Admin,User,(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{6}(Z|\+01:00))?,Oxford BRC Informatics,AudriusTest,false,false/}
         lines.any {it ==~ /editor@test.com,editor,User,(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{6}(Z|\+01:00))?,,,false,false/}
         lines.any {it ==~ /reviewer@test.com,reviewer,User,,,,false,false/}
         lines.any {it ==~ /unlogged_user@mdm-core.com,Unlogged,User,,,,false,false/}

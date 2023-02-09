@@ -126,7 +126,7 @@ class CatalogueUserControllerSpec extends ResourceControllerSpec<CatalogueUser> 
       "emailAddress": "admin@maurodatamapper.com",
       "createdBy": "unit-test@test.com",
       "pending": false,
-      "jobTitle": "God",
+      "jobTitle": "AudriusTest",
       "organisation": "Oxford BRC Informatics",
       "groups": [
         {

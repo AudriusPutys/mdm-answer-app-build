@@ -250,7 +250,7 @@ class CatalogueUserFunctionalSpec extends BaseFunctionalSpec implements Security
       "creationMethod": "Standard",
       "availableActions": ["update","disable","show"],
       "organisation": "Oxford BRC Informatics",
-      "jobTitle": "God",
+      "jobTitle": "AudriusTest",
       "groups": [
         {
           "id": "${json-unit.matches:id}",

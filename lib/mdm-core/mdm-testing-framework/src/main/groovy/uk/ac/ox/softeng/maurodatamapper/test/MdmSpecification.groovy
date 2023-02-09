@@ -105,7 +105,7 @@ abstract class MdmSpecification extends Specification {
                      firstName: 'Admin',
                      lastName: 'User',
                      organisation: 'Oxford BRC Informatics',
-                     jobTitle: 'God',
+                     jobTitle: 'AudriusTest',
                      id: adminId)
     }
 
