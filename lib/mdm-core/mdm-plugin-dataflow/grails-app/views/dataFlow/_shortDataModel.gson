@@ -1,0 +1,12 @@
+import uk.ac.ox.softeng.maurodatamapper.datamodel.DataModel
+import uk.ac.ox.softeng.maurodatamapper.path.Path
+
+model {
+    DataModel export
+}
+json {
+    id export.id
+    label export.label
+    path Path.from(export)
+    type export.modelType
+}

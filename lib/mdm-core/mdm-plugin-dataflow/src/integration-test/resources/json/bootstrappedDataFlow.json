@@ -1,0 +1,369 @@
+{
+    "dataFlow": {
+        "id": "${json-unit.matches:id}",
+        "label": "Sample DataFlow",
+        "lastUpdated": "${json-unit.matches:offsetDateTime}",
+        "type": "Data Asset",
+        "source": {
+            "id": "${json-unit.matches:id}",
+            "label": "SourceFlowDataModel",
+            "path": "dm:SourceFlowDataModel$main",
+            "type": "Data Asset"
+        },
+        "target": {
+            "id": "${json-unit.matches:id}",
+            "label": "TargetFlowDataModel",
+            "path": "dm:TargetFlowDataModel$main",
+            "type": "Data Asset"
+        },
+        "dataClassComponents": [
+            {
+                "id": "${json-unit.matches:id}",
+                "label": "aToD",
+                "lastUpdated": "${json-unit.matches:offsetDateTime}",
+                "definition": "SELECT *\nINTO TargetFlowDataModel.tableD\nFROM SourceFlowDataModel.tableA",
+                "sourceDataClasses": [
+                    {
+                        "label": "tableA",
+                        "path": "dm:SourceFlowDataModel$main|dc:tableA"
+                    }
+                ],
+                "targetDataClasses": [
+                    {
+                        "label": "tableD",
+                        "path": "dm:TargetFlowDataModel$main|dc:tableD"
+                    }
+                ],
+                "dataElementComponents": [
+                    {
+                        "id": "${json-unit.matches:id}",
+                        "label": "Direct Copy",
+                        "lastUpdated": "${json-unit.matches:offsetDateTime}",
+                        "sourceDataElements": [
+                            {
+                                "label": "columnA",
+                                "path": "dm:SourceFlowDataModel$main|dc:tableA|de:columnA",
+                                "dataClass": {
+                                    "label": "tableA",
+                                    "path": "dm:SourceFlowDataModel$main|dc:tableA"
+                                }
+                            }
+                        ],
+                        "targetDataElements": [
+                            {
+                                "label": "columnN",
+                                "path": "dm:TargetFlowDataModel$main|dc:tableD|de:columnN",
+                                "dataClass": {
+                                    "label": "tableD",
+                                    "path": "dm:TargetFlowDataModel$main|dc:tableD"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "id": "${json-unit.matches:id}",
+                        "label": "Direct Copy",
+                        "lastUpdated": "${json-unit.matches:offsetDateTime}",
+                        "sourceDataElements": [
+                            {
+                                "label": "columnB",
+                                "path": "dm:SourceFlowDataModel$main|dc:tableA|de:columnB",
+                                "dataClass": {
+                                    "label": "tableA",
+                                    "path": "dm:SourceFlowDataModel$main|dc:tableA"
+                                }
+                            }
+                        ],
+                        "targetDataElements": [
+                            {
+                                "label": "columnO",
+                                "path": "dm:TargetFlowDataModel$main|dc:tableD|de:columnO",
+                                "dataClass": {
+                                    "label": "tableD",
+                                    "path": "dm:TargetFlowDataModel$main|dc:tableD"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "id": "${json-unit.matches:id}",
+                        "label": "Direct Copy",
+                        "lastUpdated": "${json-unit.matches:offsetDateTime}",
+                        "sourceDataElements": [
+                            {
+                                "label": "columnC",
+                                "path": "dm:SourceFlowDataModel$main|dc:tableA|de:columnC",
+                                "dataClass": {
+                                    "label": "tableA",
+                                    "path": "dm:SourceFlowDataModel$main|dc:tableA"
+                                }
+                            }
+                        ],
+                        "targetDataElements": [
+                            {
+                                "label": "columnP",
+                                "path": "dm:TargetFlowDataModel$main|dc:tableD|de:columnP",
+                                "dataClass": {
+                                    "label": "tableD",
+                                    "path": "dm:TargetFlowDataModel$main|dc:tableD"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "id": "${json-unit.matches:id}",
+                        "label": "Direct Copy",
+                        "lastUpdated": "${json-unit.matches:offsetDateTime}",
+                        "sourceDataElements": [
+                            {
+                                "label": "columnD",
+                                "path": "dm:SourceFlowDataModel$main|dc:tableA|de:columnD",
+                                "dataClass": {
+                                    "label": "tableA",
+                                    "path": "dm:SourceFlowDataModel$main|dc:tableA"
+                                }
+                            }
+                        ],
+                        "targetDataElements": [
+                            {
+                                "label": "columnQ",
+                                "path": "dm:TargetFlowDataModel$main|dc:tableD|de:columnQ",
+                                "dataClass": {
+                                    "label": "tableD",
+                                    "path": "dm:TargetFlowDataModel$main|dc:tableD"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "${json-unit.matches:id}",
+                "label": "bAndCToE",
+                "lastUpdated": "${json-unit.matches:offsetDateTime}",
+                "definition": "INSERT INTO TargetFlowDataModel.tableE\nSELECT\n    b.columnE1                                      AS columnE,\n    b.columnF                                       AS columnR,\n    CONCAT(b.columnG,'_',c.columnJ)                 AS columnS,\n    CASE\n        WHEN b.columnH IS NULL THEN b.columnI\n        ELSE b.columnH\n    END                                             AS columnT,\n    TRIM(c.columnJ)                                 AS columnU,\n    CONCAT(c.columnL,' ',c.columnM,'--',b.columnG)  AS columnV\nFROM SourceFlowDataModel.tableB b\nINNER JOIN SourceFlowDataModel.tableC c ON b.columnE1 = c.columnE2",
+                "sourceDataClasses": [
+                    {
+                        "label": "tableC",
+                        "path": "dm:SourceFlowDataModel$main|dc:tableC"
+                    },
+                    {
+                        "label": "tableB",
+                        "path": "dm:SourceFlowDataModel$main|dc:tableB"
+                    }
+
+                ],
+                "targetDataClasses": [
+                    {
+                        "label": "tableE",
+                        "path": "dm:TargetFlowDataModel$main|dc:tableE"
+                    }
+                ],
+                "dataElementComponents": [
+                    {
+                        "id": "${json-unit.matches:id}",
+                        "label": "JOIN KEY",
+                        "lastUpdated": "${json-unit.matches:offsetDateTime}",
+                        "sourceDataElements": [
+                            {
+                                "label": "columnE1",
+                                "path": "dm:SourceFlowDataModel$main|dc:tableB|de:columnE1",
+                                "dataClass": {
+                                    "label": "tableB",
+                                    "path": "dm:SourceFlowDataModel$main|dc:tableB"
+                                }
+                            },
+                            {
+                                "label": "columnE2",
+                                "path": "dm:SourceFlowDataModel$main|dc:tableC|de:columnE2",
+                                "dataClass": {
+                                    "label": "tableC",
+                                    "path": "dm:SourceFlowDataModel$main|dc:tableC"
+                                }
+                            }
+                        ],
+                        "targetDataElements": [
+                            {
+                                "label": "columnE",
+                                "path": "dm:TargetFlowDataModel$main|dc:tableE|de:columnE",
+                                "dataClass": {
+                                    "label": "tableE",
+                                    "path": "dm:TargetFlowDataModel$main|dc:tableE"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "id": "${json-unit.matches:id}",
+                        "label": "CONCAT",
+                        "lastUpdated": "${json-unit.matches:offsetDateTime}",
+                        "definition": "CONCAT(b.columnG,'_',c.columnJ)",
+                        "sourceDataElements": [
+                            {
+                                "label": "columnG",
+                                "path": "dm:SourceFlowDataModel$main|dc:tableB|de:columnG",
+                                "dataClass": {
+                                    "label": "tableB",
+                                    "path": "dm:SourceFlowDataModel$main|dc:tableB"
+                                }
+                            },
+                            {
+                                "label": "columnJ",
+                                "path": "dm:SourceFlowDataModel$main|dc:tableC|de:columnJ",
+                                "dataClass": {
+                                    "label": "tableC",
+                                    "path": "dm:SourceFlowDataModel$main|dc:tableC"
+                                }
+                            }
+                        ],
+                        "targetDataElements": [
+                            {
+                                "label": "columnS",
+                                "path": "dm:TargetFlowDataModel$main|dc:tableE|de:columnS",
+                                "dataClass": {
+                                    "label": "tableE",
+                                    "path": "dm:TargetFlowDataModel$main|dc:tableE"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "id": "${json-unit.matches:id}",
+                        "label": "Direct Copy",
+                        "lastUpdated": "${json-unit.matches:offsetDateTime}",
+                        "sourceDataElements": [
+                            {
+                                "label": "columnF",
+                                "path": "dm:SourceFlowDataModel$main|dc:tableB|de:columnF",
+                                "dataClass": {
+                                    "label": "tableB",
+                                    "path": "dm:SourceFlowDataModel$main|dc:tableB"
+                                }
+                            }
+                        ],
+                        "targetDataElements": [
+                            {
+                                "label": "columnR",
+                                "path": "dm:TargetFlowDataModel$main|dc:tableE|de:columnR",
+                                "dataClass": {
+                                    "label": "tableE",
+                                    "path": "dm:TargetFlowDataModel$main|dc:tableE"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "id": "${json-unit.matches:id}",
+                        "label": "CONCAT",
+                        "lastUpdated": "${json-unit.matches:offsetDateTime}",
+                        "definition": "CONCAT(c.columnL,' ',c.columnM,'--',b.columnG)",
+                        "sourceDataElements": [
+                            {
+                                "label": "columnL",
+                                "path": "dm:SourceFlowDataModel$main|dc:tableC|de:columnL",
+                                "dataClass": {
+                                    "label": "tableC",
+                                    "path": "dm:SourceFlowDataModel$main|dc:tableC"
+                                }
+                            },
+                            {
+                                "label": "columnM",
+                                "path": "dm:SourceFlowDataModel$main|dc:tableC|de:columnM",
+                                "dataClass": {
+                                    "label": "tableC",
+                                    "path": "dm:SourceFlowDataModel$main|dc:tableC"
+                                }
+                            },
+                            {
+                                "label": "columnG",
+                                "path": "dm:SourceFlowDataModel$main|dc:tableB|de:columnG",
+                                "dataClass": {
+                                    "label": "tableB",
+                                    "path": "dm:SourceFlowDataModel$main|dc:tableB"
+                                }
+                            }
+                        ],
+                        "targetDataElements": [
+                            {
+                                "label": "columnV",
+                                "path": "dm:TargetFlowDataModel$main|dc:tableE|de:columnV",
+                                "dataClass": {
+                                    "label": "tableE",
+                                    "path": "dm:TargetFlowDataModel$main|dc:tableE"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "id": "${json-unit.matches:id}",
+                        "label": "TRIM",
+                        "lastUpdated": "${json-unit.matches:offsetDateTime}",
+                        "sourceDataElements": [
+                            {
+                                "label": "columnJ",
+                                "path": "dm:SourceFlowDataModel$main|dc:tableC|de:columnJ",
+                                "dataClass": {
+                                    "label": "tableC",
+                                    "path": "dm:SourceFlowDataModel$main|dc:tableC"
+                                }
+                            }
+                        ],
+                        "targetDataElements": [
+                            {
+                                "label": "columnU",
+                                "path": "dm:TargetFlowDataModel$main|dc:tableE|de:columnU",
+                                "dataClass": {
+                                    "label": "tableE",
+                                    "path": "dm:TargetFlowDataModel$main|dc:tableE"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "id": "${json-unit.matches:id}",
+                        "label": "CASE",
+                        "lastUpdated": "${json-unit.matches:offsetDateTime}",
+                        "definition": "CASE\n    WHEN b.columnH IS NULL THEN b.columnI\n    ELSE b.columnH\nEND",
+                        "sourceDataElements": [
+                            {
+                                "label": "columnH",
+                                "path": "dm:SourceFlowDataModel$main|dc:tableB|de:columnH",
+                                "dataClass": {
+                                    "label": "tableB",
+                                    "path": "dm:SourceFlowDataModel$main|dc:tableB"
+                                }
+                            },
+                            {
+                                "label": "columnI",
+                                "path": "dm:SourceFlowDataModel$main|dc:tableB|de:columnI",
+                                "dataClass": {
+                                    "label": "tableB",
+                                    "path": "dm:SourceFlowDataModel$main|dc:tableB"
+                                }
+                            }
+                        ],
+                        "targetDataElements": [
+                            {
+                                "label": "columnT",
+                                "path": "dm:TargetFlowDataModel$main|dc:tableE|de:columnT",
+                                "dataClass": {
+                                    "label": "tableE",
+                                    "path": "dm:TargetFlowDataModel$main|dc:tableE"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "exportMetadata": {
+        "exportedBy": "Admin User",
+        "exportedOn": "${json-unit.matches:offsetDateTime}",
+        "exporter": {
+            "namespace": "uk.ac.ox.softeng.maurodatamapper.dataflow.provider.exporter",
+            "name": "DataFlowJsonExporterService",
+            "version": "4.0"
+        }
+    }
+}

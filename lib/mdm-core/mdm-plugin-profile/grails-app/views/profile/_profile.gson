@@ -1,0 +1,11 @@
+import uk.ac.ox.softeng.maurodatamapper.profile.object.Profile
+
+model {
+    Profile profile
+}
+json {
+    sections tmpl.'/profileSection/profileSection'(profile.sections)
+    if (profile.id) id profile.id
+    if (profile.label) label profile.label
+    if (profile.domainType) domainType profile.domainType
+}

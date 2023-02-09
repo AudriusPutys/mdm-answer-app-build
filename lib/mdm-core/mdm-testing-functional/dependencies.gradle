@@ -1,0 +1,19 @@
+dependencies {
+
+    compileOnly project(':mdm-common')
+    compileOnly "io.micronaut:micronaut-http-client"
+    implementation "org.grails:grails-web-testing-support"
+    compileOnly project(':mdm-testing-framework')
+
+    testImplementation group: 'org.apache.commons', name: 'commons-csv'
+    implementation project(':mdm-testing-framework')
+
+    runtimeOnly "io.methvin:directory-watcher", {
+        exclude group: 'com.google.guava', module: 'guava'
+    }
+
+    // Postgres database
+    runtimeOnly "org.hibernate:hibernate-jcache"
+    runtimeOnly group: 'org.ehcache', name: 'ehcache'
+    runtimeOnly group: 'org.postgresql', name: 'postgresql'
+}

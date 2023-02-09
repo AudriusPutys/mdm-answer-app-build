@@ -1,0 +1,9 @@
+import uk.ac.ox.softeng.maurodatamapper.security.UserSecurityPolicyManager
+import uk.ac.ox.softeng.maurodatamapper.security.role.GroupRole
+
+model {
+    GroupRole groupRole
+    UserSecurityPolicyManager userSecurityPolicyManager
+}
+
+json tmpl.groupRole_full(groupRole: groupRole, userSecurityPolicyManager: userSecurityPolicyManager)

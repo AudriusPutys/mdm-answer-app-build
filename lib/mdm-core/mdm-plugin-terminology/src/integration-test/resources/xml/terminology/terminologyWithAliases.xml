@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exp:exportModel xmlns:exp="http://maurodatamapper.com/export/5.0">
+    <mdm:terminology xmlns:mdm="http://maurodatamapper.com/terminology/4.0">
+        <mdm:id>7928fcee-ac79-4995-aefd-2e68ddcf4a45</mdm:id>
+        <mdm:label>Imported Test Terminology</mdm:label>
+        <mdm:aliases>
+            <mdm:alias>Alias 1</mdm:alias>
+            <mdm:alias>Alias 2</mdm:alias>
+        </mdm:aliases>
+        <mdm:lastUpdated>2022-01-11T15:51:13.69Z</mdm:lastUpdated>
+        <mdm:author>Test Author</mdm:author>
+        <mdm:organisation>Test Organisation</mdm:organisation>
+        <mdm:documentationVersion>1.0.0</mdm:documentationVersion>
+        <mdm:finalised>false</mdm:finalised>
+        <mdm:branchName>main</mdm:branchName>
+        <mdm:authority>
+            <mdm:id>b2a022f7-0b49-4517-b472-d65d601a82d6</mdm:id>
+            <mdm:label>Test Authority</mdm:label>
+            <mdm:url>http://localhost</mdm:url>
+            <mdm:lastUpdated>2022-01-11T15:50:43.359Z</mdm:lastUpdated>
+        </mdm:authority>
+    </mdm:terminology>
+    <exp:exportMetadata>
+        <exp:exportedBy>Admin User</exp:exportedBy>
+        <exp:exportedOn>2022-01-11T15:51:13.697246Z</exp:exportedOn>
+        <exp:exporter>
+            <exp:namespace>uk.ac.ox.softeng.maurodatamapper.terminology.provider.exporter</exp:namespace>
+            <exp:name>TerminologyXmlExporterService</exp:name>
+            <exp:version>5.0</exp:version>
+        </exp:exporter>
+    </exp:exportMetadata>
+</exp:exportModel>

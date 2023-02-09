@@ -1,0 +1,10 @@
+import uk.ac.ox.softeng.maurodatamapper.core.rest.transport.model.ModelLinkTarget
+
+model{
+    ModelLinkTarget modelLinkTarget
+}
+
+json {
+    id modelLinkTarget.modelId
+    description modelLinkTarget.description
+}

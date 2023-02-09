@@ -1,0 +1,10 @@
+import uk.ac.ox.softeng.maurodatamapper.profile.domain.ProfileSection
+
+model {
+    ProfileSection profileSection
+}
+json {
+    name profileSection.name
+    description profileSection.description
+    fields tmpl.'/profileField/profileField_full'(profileSection.fields)
+}

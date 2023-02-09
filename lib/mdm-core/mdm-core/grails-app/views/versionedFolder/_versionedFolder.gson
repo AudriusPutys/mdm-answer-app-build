@@ -1,0 +1,14 @@
+import uk.ac.ox.softeng.maurodatamapper.core.container.VersionedFolder
+
+inherits(template: '/folder/folder', model: [folder: versionedFolder])
+
+model {
+    VersionedFolder versionedFolder
+}
+
+json {
+    branchName versionedFolder.branchName
+    documentationVersion versionedFolder.documentationVersion
+    if (versionedFolder.modelVersion) modelVersion versionedFolder.modelVersion
+    if (versionedFolder.modelVersionTag) modelVersionTag versionedFolder.modelVersionTag
+}

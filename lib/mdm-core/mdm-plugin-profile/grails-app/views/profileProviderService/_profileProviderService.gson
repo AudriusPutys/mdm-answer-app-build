@@ -1,0 +1,35 @@
+import uk.ac.ox.softeng.maurodatamapper.profile.provider.DynamicImportJsonProfileProviderService
+import uk.ac.ox.softeng.maurodatamapper.profile.provider.DynamicJsonProfileProviderService
+import uk.ac.ox.softeng.maurodatamapper.profile.provider.ProfileProviderService
+
+inherits template: '/mauroDataMapperServiceProvider/mauroDataMapperService', model: [mauroDataMapperService: profileProviderService]
+
+model {
+    ProfileProviderService profileProviderService
+}
+
+json {
+    metadataNamespace profileProviderService.metadataNamespace
+    domains profileProviderService.profileApplicableForDomains()
+    editableAfterFinalisation profileProviderService.canBeEditedAfterFinalisation()
+
+    if (profileProviderService instanceof DynamicJsonProfileProviderService) {
+        DynamicJsonProfileProviderService djpps = (DynamicJsonProfileProviderService) profileProviderService
+        dataModel {
+            id djpps.definingDataModel
+            label djpps.definingDataModelLabel
+            description djpps.definingDataModelDescription
+        }
+    }
+
+    if (profileProviderService instanceof DynamicImportJsonProfileProviderService) {
+        DynamicImportJsonProfileProviderService dijpps = (DynamicImportJsonProfileProviderService) profileProviderService
+        if (dijpps.importingId) {
+            importingOwner {
+                id dijpps.importingId
+                domainType dijpps.importingDomainType
+                path dijpps.importingPath
+            }
+        }
+    }
+}
