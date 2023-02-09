@@ -1,0 +1,39 @@
+{
+  "count": 1,
+  "items": [
+    {
+      "id": "${json-unit.matches:id}",
+      "rowNumber": 6,
+      "value": "Row6Value2",
+      "referenceDataElement": {
+        "id": "${json-unit.matches:id}",
+        "domainType": "ReferenceDataElement",
+        "label": "Column 2",
+        "model": "${json-unit.matches:id}",
+        "breadcrumbs": [
+          {
+            "id": "${json-unit.matches:id}",
+            "label": "FT Test Reference Data Model",
+            "domainType": "ReferenceDataModel",
+            "finalised": false
+          }
+        ],
+        "columnNumber": 1,
+        "referenceDataType": {
+          "id": "${json-unit.matches:id}",
+          "domainType": "ReferencePrimitiveType",
+          "label": "string",
+          "model": "${json-unit.matches:id}",
+          "breadcrumbs": [
+            {
+              "id": "${json-unit.matches:id}",
+              "label": "FT Test Reference Data Model",
+              "domainType": "ReferenceDataModel",
+              "finalised": false
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

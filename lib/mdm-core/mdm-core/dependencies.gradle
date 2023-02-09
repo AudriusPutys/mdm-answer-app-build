@@ -1,0 +1,27 @@
+dependencies {
+
+    api project(':mdm-common')
+
+    implementation group: 'org.apache.commons', name: 'commons-text'
+    implementation group: 'org.apache.commons', name: 'commons-csv'
+    implementation group: 'org.simplejavamail', name: 'simple-java-mail'
+    implementation group: 'com.google.guava', name: 'guava'
+    implementation group: 'commons-beanutils', name: 'commons-beanutils'
+
+    implementation "org.grails.plugins:hibernate-search"
+
+    runtimeOnly "io.methvin:directory-watcher", {
+        exclude group: 'com.google.guava', module: 'guava'
+    }
+
+    // Postgres database
+    api group: 'org.flywaydb', name: 'flyway-core'
+    runtimeOnly "org.hibernate:hibernate-jcache"
+    runtimeOnly group: 'org.ehcache', name: 'ehcache'
+    runtimeOnly group: 'org.postgresql', name: 'postgresql'
+
+    testImplementation project(':mdm-testing-framework')
+
+    api group: 'com.github.spotbugs', name: 'spotbugs-annotations'
+}
+

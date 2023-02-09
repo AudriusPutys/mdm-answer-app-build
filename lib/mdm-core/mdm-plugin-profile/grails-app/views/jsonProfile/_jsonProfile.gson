@@ -1,0 +1,10 @@
+import uk.ac.ox.softeng.maurodatamapper.profile.object.JsonProfile
+
+inherits template: '/profile/profile', model: [profile: jsonProfile]
+
+model {
+    JsonProfile jsonProfile
+}
+json {
+
+}

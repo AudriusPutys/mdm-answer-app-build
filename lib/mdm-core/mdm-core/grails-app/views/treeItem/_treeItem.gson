@@ -1,0 +1,49 @@
+import uk.ac.ox.softeng.maurodatamapper.core.rest.transport.tree.ContainerTreeItem
+import uk.ac.ox.softeng.maurodatamapper.core.rest.transport.tree.ModelItemTreeItem
+import uk.ac.ox.softeng.maurodatamapper.core.rest.transport.tree.ModelTreeItem
+import uk.ac.ox.softeng.maurodatamapper.core.rest.transport.tree.TreeItem
+
+model {
+    TreeItem treeItem
+}
+
+json {
+    id treeItem.id
+    domainType treeItem.domainType
+    label treeItem.label
+    hasChildren treeItem.hasChildren()
+    availableActions treeItem.availableActions
+
+    if (treeItem instanceof ContainerTreeItem) {
+        ContainerTreeItem cti = (ContainerTreeItem) treeItem
+        deleted cti.deleted
+        if (cti.containerId) parentFolder cti.containerId
+        if (cti.versionAware) {
+            finalised cti.finalised
+            documentationVersion cti.documentationVersion
+            if (cti.modelVersion) modelVersion cti.modelVersion
+            if (cti.modelVersionTag) modelVersionTag cti.modelVersionTag
+            if (cti.branchName && !cti.modelVersion) branchName cti.branchName
+        }
+    } else if (treeItem instanceof ModelTreeItem) {
+        ModelTreeItem mti = (ModelTreeItem) treeItem
+        deleted mti.deleted
+        finalised mti.finalised
+        superseded mti.superseded
+        documentationVersion mti.documentationVersion
+        folder mti.containerId
+        type mti.modelType
+        if (mti.modelVersion) modelVersion mti.modelVersion
+        if (mti.modelVersionTag) modelVersionTag mti.modelVersionTag
+        if (mti.branchName && !mti.modelVersion) branchName mti.branchName
+    } else if (treeItem instanceof ModelItemTreeItem) {
+        ModelItemTreeItem miti = (ModelItemTreeItem) treeItem
+        modelId miti.rootId
+        if (miti.hasParent()) parentId treeItem.parentId
+        if (miti.isImported()) imported miti.imported
+    }
+
+    if (treeItem.hasChildren() && treeItem.renderChildren) {
+        children tmpl.treeItem(treeItem.children.sort())
+    }
+}

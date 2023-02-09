@@ -1,0 +1,7 @@
+import uk.ac.ox.softeng.maurodatamapper.federation.SubscribedModel
+
+model {
+    SubscribedModel subscribedModel
+}
+
+json tmpl.subscribedModel_full(subscribedModel)

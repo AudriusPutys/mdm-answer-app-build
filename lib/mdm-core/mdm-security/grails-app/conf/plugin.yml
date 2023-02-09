@@ -1,0 +1,9 @@
+maurodatamapper:
+    security:
+        public: false
+        max:
+            lock:
+                time: 30
+    bootstrap:
+        adminuser: true
+        folder: true

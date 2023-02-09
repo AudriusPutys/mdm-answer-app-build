@@ -1,0 +1,9 @@
+import uk.ac.ox.softeng.maurodatamapper.security.UserGroup
+import uk.ac.ox.softeng.maurodatamapper.security.UserSecurityPolicyManager
+
+model {
+    UserGroup userGroup
+    UserSecurityPolicyManager userSecurityPolicyManager
+}
+
+json tmpl.userGroup_full(userGroup: userGroup, userSecurityPolicyManager: userSecurityPolicyManager)

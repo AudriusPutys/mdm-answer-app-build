@@ -1,0 +1,29 @@
+import uk.ac.ox.softeng.maurodatamapper.core.rest.converter.json.OffsetDateTimeConverter
+import uk.ac.ox.softeng.maurodatamapper.terminology.Terminology
+import uk.ac.ox.softeng.maurodatamapper.terminology.item.term.TermRelationship
+
+inherits template: '/catalogueItem/export'
+model {
+    Terminology export
+}
+json {
+
+    if (export.author) author export.author
+    if (export.organisation) organisation export.organisation
+
+    documentationVersion export.documentationVersion
+
+    finalised export.finalised
+    if (export.finalised) dateFinalised OffsetDateTimeConverter.toString(export.dateFinalised)
+    if (export.modelVersion) modelVersion export.modelVersion
+    if (export.authority) authority tmpl.'/authority/export'(export.authority)
+
+    if (export.termRelationshipTypes) termRelationshipTypes tmpl.'/termRelationshipType/export'(export.termRelationshipTypes)
+    if (export.terms) {
+        terms tmpl.'/term/export'(export.terms)
+        List<TermRelationship> relationships = export.getAllTermRelationships()
+        if (relationships) {
+            termRelationships tmpl.'/termRelationship/export'(relationships)
+        }
+    }
+}

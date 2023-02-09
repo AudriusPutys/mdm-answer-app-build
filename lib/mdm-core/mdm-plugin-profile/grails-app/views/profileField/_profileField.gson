@@ -1,0 +1,13 @@
+import uk.ac.ox.softeng.maurodatamapper.profile.domain.ProfileField
+
+model {
+    ProfileField profileField
+}
+
+json {
+    fieldName profileField.fieldName
+    metadataPropertyName profileField.metadataPropertyName
+    currentValue profileField.currentValue ?: ''
+    dataType profileField.dataType.label
+    if (profileField.allowedValues) allowedValues profileField.allowedValues
+}

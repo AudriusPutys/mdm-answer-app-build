@@ -1,0 +1,12 @@
+import uk.ac.ox.softeng.maurodatamapper.core.provider.exporter.ExportModel
+
+model {
+    ExportModel exportModel
+}
+
+json {
+    call(exportModel.modelType,
+         exportModel.exportMap.export instanceof List ? g.render(template: exportModel.templatePath, collection: exportModel.exportMap.export, var: 'export')
+                                                      : g.render(template: exportModel.templatePath, model: exportModel.exportMap))
+    exportMetadata g.render(exportModel.exportMetadata)
+}

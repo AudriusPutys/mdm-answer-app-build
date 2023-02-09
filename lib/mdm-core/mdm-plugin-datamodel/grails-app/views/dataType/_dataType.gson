@@ -1,0 +1,33 @@
+import uk.ac.ox.softeng.maurodatamapper.datamodel.item.datatype.DataType
+import uk.ac.ox.softeng.maurodatamapper.datamodel.item.datatype.EnumerationType
+import uk.ac.ox.softeng.maurodatamapper.datamodel.item.datatype.ModelDataType
+import uk.ac.ox.softeng.maurodatamapper.datamodel.item.datatype.PrimitiveType
+import uk.ac.ox.softeng.maurodatamapper.datamodel.item.datatype.ReferenceType
+
+inherits template: '/catalogueItem/catalogueItem', model: [catalogueItem: dataType]
+model {
+    DataType dataType
+    UUID owningDataModelId
+}
+
+json {
+
+    if (dataType.instanceOf(EnumerationType)) {
+        EnumerationType et = dataType as EnumerationType
+        enumerationValues g.render(et.enumerationValues?.sort() ?: [])
+    }
+    if (dataType.instanceOf(ReferenceType)) {
+        ReferenceType rt = dataType as ReferenceType
+        referenceClass tmpl.'/dataClass/dataClass'(dataClass: rt.referenceClass, renderLinks: false)
+    }
+    if (dataType.instanceOf(PrimitiveType)) {
+        PrimitiveType pt = dataType as PrimitiveType
+        if (pt.units) units pt.units
+    }
+    if (dataType.instanceOf(ModelDataType)) {
+        ModelDataType mdt = dataType as ModelDataType
+        modelResourceId mdt.modelResourceId
+        modelResourceDomainType mdt.modelResourceDomainType
+    }
+    if (owningDataModelId && dataType.model.id != owningDataModelId) imported true
+}

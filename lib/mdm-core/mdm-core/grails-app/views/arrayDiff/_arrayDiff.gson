@@ -1,0 +1,12 @@
+import uk.ac.ox.softeng.maurodatamapper.core.diff.bidirectional.ArrayDiff
+
+model {
+    ArrayDiff arrayDiff
+
+}
+
+json("${arrayDiff.fieldName}") {
+    if (arrayDiff.deleted) deleted g.render(arrayDiff.deleted)
+    if (arrayDiff.created) created g.render(arrayDiff.created)
+    if (arrayDiff.modified) modified g.render(arrayDiff.modified)
+}
